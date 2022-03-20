@@ -17,3 +17,35 @@
         opacity: 0;
     }
 }
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .main {
+        width: 100%;
+    }
+    .header {
+        font-size: 4rem;
+    }
+    .main__item--sign-up {
+        display: none;
+    }
+    .main__item-modal {
+        display: none;
+    }
+}
+/* Tablet */
+@media screen and (max-width: 768px) {
+    .main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .main__item {
+        
+    }
+    .main__item--sign-up {
+        display: none;
+    }
+    .main__item-modal {
+        display: none;
+    }
+}

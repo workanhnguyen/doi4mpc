@@ -14,43 +14,34 @@
         <p class="header">CONTEST MPC</p>
         <div class="main">
             <div class="main__item-modal"></div>
-            <div class="main__item">
+            <div class="main__item main__item--sign-up">
                 <p class="main__item-heading">Sign Up</p>
-                <input type="text" class="main__item-input" placeholder="Username">
-                <input type="text" class="main__item-input" placeholder="Password">
-                <input type="text" class="main__item-input" placeholder="Confirm password">
-                <button class="main__item-btn">Sign Up</button>
+                <input type="text" class="main__item-input username" placeholder="Username">
+                <input type="password" class="main__item-input password" placeholder="Password">
+                <input type="password" class="main__item-input confirm-password" placeholder="Confirm password">
+                <button id="sign-up" class="main__item-btn">Sign Up</button>
                 <p class="main__item-turn">
-                    <i id="sign-in">Already have an acount?</i>
+                    <i id="turn-sign-in">Already have an acount?</i>
                 </p>
             </div>
 
-            <div class="main__item">
+            <div class="main__item main__item--sign-in">
                 <p class="main__item-heading">Sign In</p>
-                <input type="text" class="main__item-input" placeholder="Username">
-                <input type="text" class="main__item-input" placeholder="Password">
-                <button class="main__item-btn">Sign Up</button>
+                <input type="text" class="main__item-input username" placeholder="Username">
+                <input type="password" class="main__item-input password" placeholder="Password">
+                <button id="sign-in" class="main__item-btn">Sign In</button>
                 <p class="main__item-turn">
-                    <i id="sign-up">Create a new acount?</i>
+                    <i id="turn-sign-up">Create a new acount?</i>
                 </p>
             </div>
         </div>
     </div>
     <!-- Appear if user types wrong information -->
-    <div class="toast toast--check">
+    <div class="toast">
         <i class="fa-solid fa-circle-exclamation toast__icon-alert"></i>
         <div class="toast__content">
             <p class="toast__content-heading">Error!</p>
-            <p class="toast__content-body">Username not exits</p>
-        </div>
-        <i class="fa-solid fa-xmark toast__icon-exit"></i>
-    </div>
-
-    <div class="toast toast--empty">
-        <i class="fa-solid fa-circle-exclamation toast__icon-alert"></i>
-        <div class="toast__content">
-            <p class="toast__content-heading">Error!</p>
-            <p class="toast__content-body">Please enter all fields!</p>
+            <p class="toast__content-body"></p>
         </div>
         <i class="fa-solid fa-xmark toast__icon-exit"></i>
     </div>
