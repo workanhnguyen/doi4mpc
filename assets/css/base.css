@@ -1,18 +1,15 @@
-@keyframes rightSlideIn {
+@keyframes slideInLeft {
     from {
         opacity: 0;
-        right: 0;
+        transform: translateX(100px);
     }
     to {
         opacity: 1;
-        right: 32px;
+        transform: translateX(0);
     }
 }
 
-@keyframes disappear {
-    from {
-        opacity: 1;
-    }
+@keyframes fadeOut {
     to {
         opacity: 0;
     }
@@ -28,6 +25,9 @@
     .main__item--sign-up {
         display: none;
     }
+    .main__item--sign-in {
+        display: flex;
+    }
     .main__item-modal {
         display: none;
     }
@@ -39,13 +39,14 @@
         display: flex;
         justify-content: center;
     }
-    .main__item {
-        
-    }
     .main__item--sign-up {
         display: none;
     }
     .main__item-modal {
         display: none;
+    }
+    .main__item--sign-in {
+        position: relative;
+        left: 0;
     }
 }
