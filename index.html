@@ -36,9 +36,23 @@
             </div>
         </div>
     </div>
+    <!-- Appear if user types wrong information -->
+    <div class="toast toast--check">
+        <i class="fa-solid fa-circle-exclamation toast__icon-alert"></i>
+        <div class="toast__content">
+            <p class="toast__content-heading">Error!</p>
+            <p class="toast__content-body">Username not exits</p>
+        </div>
+        <i class="fa-solid fa-xmark toast__icon-exit"></i>
+    </div>
 
-    <div class="toast">
-
+    <div class="toast toast--empty">
+        <i class="fa-solid fa-circle-exclamation toast__icon-alert"></i>
+        <div class="toast__content">
+            <p class="toast__content-heading">Error!</p>
+            <p class="toast__content-body">Please enter all fields!</p>
+        </div>
+        <i class="fa-solid fa-xmark toast__icon-exit"></i>
     </div>
     <script src="/assets/js/index.js"></script>
 </body>

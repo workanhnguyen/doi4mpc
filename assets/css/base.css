@@ -1,0 +1,19 @@
+@keyframes rightSlideIn {
+    from {
+        opacity: 0;
+        right: 0;
+    }
+    to {
+        opacity: 1;
+        right: 32px;
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
