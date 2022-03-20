@@ -17,17 +17,21 @@
 
 /* Mobile */
 @media screen and (max-width: 480px) {
+    body {
+        overflow: hidden;
+    }
     .main {
-        width: 100%;
+        width: fit-content;
+        overflow: hidden;
     }
     .header {
         font-size: 4rem;
     }
-    .main__item--sign-up {
-        display: none;
-    }
     .main__item--sign-in {
-        display: flex;
+        transform: translateX(0);
+    }
+    .main__item--sign-up {
+        transform: translateX(0);
     }
     .main__item-modal {
         display: none;

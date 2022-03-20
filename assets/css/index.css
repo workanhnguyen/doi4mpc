@@ -133,7 +133,7 @@ body {
 #toast {
     position: fixed;
     top: 52px;
-    right: 32px;
+    right: 2%;
 }
 
 .toast {
