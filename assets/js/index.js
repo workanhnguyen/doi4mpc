@@ -86,9 +86,9 @@ signUp.addEventListener('click', function () {
     if (userName === "" || passWord === "" || confirmPassWord === "") {
         alertContent = "Please enter all fields!";
         toast(alertContent);
-    }
-    if (passWord === confirmPassWord) {
+    } else if (passWord === confirmPassWord) {
         userNameArr = JSON.parse(localStorage.getItem('username'));
+        passWordArr = JSON.parse(localStorage.getItem('password'));
         var flagIn = true;
         if (userNameArr === null) {
             userNameArr = [];
@@ -122,13 +122,27 @@ signUp.addEventListener('click', function () {
     }
 })
 // Responsive sign in and sign up animation
-if (window.innerWidth <= 768) {
-    turnSignUp.addEventListener('click', function () {
-        document.querySelector('.main__item--sign-in').style.display = "none";
-        document.querySelector('.main__item--sign-up').style.display = "flex";
-    });
-    turnSignIn.addEventListener('click', function () {
-        document.querySelector('.main__item--sign-up').style.display = "none";
-        document.querySelector('.main__item--sign-in').style.display = "flex";
-    });
-}
+window.addEventListener('resize', function() {
+    if (this.window.innerWidth > 768) {
+        document.querySelector('.main__item--sign-in').style.transform = 'translateX(0)';
+        document.querySelector('.main__item--sign-up').style.transform = 'translateX(0)';
+    } else {
+        document.querySelector('.main__item--sign-in').style.transform = 'translateX(-50%)';
+        document.querySelector('.main__item--sign-up').style.transform = 'translateX(-100%)';
+        turnSignUp.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.main__item--sign-in').style.transform = 'translateX(150%)';
+                document.querySelector('.main__item--sign-up').style.transform = 'translateX(50%)';
+            }
+        });
+        
+        turnSignIn.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.main__item--sign-in').style.transform = 'translateX(-50%)';
+                document.querySelector('.main__item--sign-up').style.transform = 'translateX(-100%)';
+            }
+        });
+        
+    }
+})
+

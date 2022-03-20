@@ -14,6 +14,7 @@
         opacity: 0;
     }
 }
+
 /* Mobile */
 @media screen and (max-width: 480px) {
     .main {
@@ -35,12 +36,16 @@
 /* Tablet */
 @media screen and (max-width: 768px) {
     .main {
-        width: 100%;
+        width: 450px;
         display: flex;
         justify-content: center;
+        overflow: hidden;
+    }
+    .main__item--sign-in {
+        transform: translateX(-50%);
     }
     .main__item--sign-up {
-        display: none;
+        transform: translateX(-100%);
     }
     .main__item-modal {
         display: none;
