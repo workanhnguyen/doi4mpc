@@ -49,6 +49,7 @@ var alertContent = "";
 var userNameArr = [];
 var passWordArr = [];
 var signInAllow = false;
+var rightPassword = true;
 
 signIn.addEventListener('click', function () {
     userName = document.querySelector('.main__item--sign-in > .main__item-input.username').value;
@@ -67,10 +68,18 @@ signIn.addEventListener('click', function () {
                 if (userName === userNameArr[i] && passWord === passWordArr[i]) {
                     signInAllow = true;
                     break;
+                } else if (userName === userNameArr[i] && passWord !== passWordArr[i]) {
+                    rightPassword = false;
+                    break;
+                } else {
+                    rightPassword = true;
                 }
             }
             if (signInAllow === false) {
                 alertContent = "Username not exits!";
+                if (rightPassword === false) {
+                    alertContent = "Password not match!";
+                }
                 toast(alertContent);
             } else {
                 document.querySelector('#sign-in').href = 'homepage.html';
