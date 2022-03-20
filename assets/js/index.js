@@ -51,57 +51,71 @@ var passWordArr = [];
 var signInAllow = false;
 
 signIn.addEventListener('click', function () {
-    alertContent = "Please enter all fields!";
     userName = document.querySelector('.main__item--sign-in > .main__item-input.username').value;
     passWord = document.querySelector('.main__item--sign-in > .main__item-input.password').value;
     if (userName === "" || passWord === "") {
+        alertContent = "Please enter all fields!";
         toast(alertContent);
     } else {
         userNameArr = JSON.parse(localStorage.getItem('username'));
         passWordArr = JSON.parse(localStorage.getItem('password'));
-        console.log(userNameArr, passWordArr);
-        for (var i = 0; i < userNameArr.length; i++) {
-            if (userName === userNameArr[i] && passWord === passWordArr[i]) {
-                signInAllow = true;
-                break;
-            }
-        }
-        if (signInAllow === false) {
+        if (userNameArr === null || passWordArr === null) {
             alertContent = "Username not exits!";
             toast(alertContent);
         } else {
-            document.querySelector('#sign-in').href = 'homepage.html';
+            for (var i = 0; i < userNameArr.length; i++) {
+                if (userName === userNameArr[i] && passWord === passWordArr[i]) {
+                    signInAllow = true;
+                    break;
+                }
+            }
+            if (signInAllow === false) {
+                alertContent = "Username not exits!";
+                toast(alertContent);
+            } else {
+                document.querySelector('#sign-in').href = 'homepage.html';
+            }
         }
     }
-    console.log(userName, passWord);
 })
 
 signUp.addEventListener('click', function () {
-    alertContent = "Please enter all fields!";
     userName = document.querySelector('.main__item--sign-up > .main__item-input.username').value;
     passWord = document.querySelector('.main__item--sign-up > .main__item-input.password').value;
     confirmPassWord = document.querySelector('.main__item--sign-up > .main__item-input.confirm-password').value;
     if (userName === "" || passWord === "" || confirmPassWord === "") {
+        alertContent = "Please enter all fields!";
         toast(alertContent);
     }
     if (passWord === confirmPassWord) {
         userNameArr = JSON.parse(localStorage.getItem('username'));
         var flagIn = true;
-        for (var i = 0; i < userNameArr.length; i++) {
-            if (userNameArr[i] === userName) {
-                alertContent = "Username already exits!";
-                toast(alertContent);
-                flagIn = false;
-                break;
-            }
-        }
-        if (flagIn === true) {
+        if (userNameArr === null) {
+            userNameArr = [];
+            passWordArr = [];
             userNameArr.push(userName);
             passWordArr.push(passWord);
             localStorage.setItem('username', JSON.stringify(userNameArr));
             localStorage.setItem('password', JSON.stringify(passWordArr));
             removeInfo();
             modal.classList.remove('turn');
+        } else {
+            for (var i = 0; i < userNameArr.length; i++) {
+                if (userNameArr[i] === userName) {
+                    alertContent = "Username already exits!";
+                    toast(alertContent);
+                    flagIn = false;
+                    break;
+                }
+            }
+            if (flagIn === true) {
+                userNameArr.push(userName);
+                passWordArr.push(passWord);
+                localStorage.setItem('username', JSON.stringify(userNameArr));
+                localStorage.setItem('password', JSON.stringify(passWordArr));
+                removeInfo();
+                modal.classList.remove('turn');
+            }
         }
     } else {
         toast("Confirm password not match!"); 
